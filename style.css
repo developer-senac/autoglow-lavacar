@@ -1,4 +1,3 @@
-/* --- RESET E CONFIGURAÇÕES WCAG --- */
 * {
     margin: 0;
     padding: 0;
@@ -29,13 +28,11 @@ html {
     padding: 0 20px;
 }
 
-/* --- ACESSIBILIDADE DE TECLADO --- */
 a:focus, button:focus {
     outline: 3px solid var(--primary-neon);
     outline-offset: 4px;
 }
 
-/* --- HEADER --- */
 .main-header {
     background-color: rgba(18, 24, 36, 0.95);
     padding: 20px 0;
@@ -79,14 +76,21 @@ a:focus, button:focus {
     color: var(--primary-neon);
 }
 
-/* --- HERO SECTION --- */
 .hero-section {
     padding: 120px 0;
-    background: linear-gradient(to right, rgba(18, 24, 36, 0.95) 45%, rgba(18, 24, 36, 0.5)), 
-                url('https://unsplash.com') no-repeat center center / cover;
     min-height: 80vh;
     display: flex;
     align-items: center;
+    background-color: var(--bg-dark); 
+}
+
+.hero-container {
+    display: flex;
+    flex-direction: row;         
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    width: 100%;
 }
 
 .hero-content {
@@ -124,7 +128,22 @@ a:focus, button:focus {
     text-shadow: 0 2px 8px rgba(0,0,0,0.7);
 }
 
-/* --- BOTÃO WHATSAPP --- */
+.hero-img {
+    display: block;
+    width: 100%;             
+    max-width: 550px;        
+    height: auto;            
+    object-fit: cover;       
+    border-radius: 16px;     
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); 
+    margin: 0 auto;          
+    transition: transform 0.3s ease; 
+}
+
+.hero-img:hover {
+    transform: scale(1.02);  
+}
+
 .btn-whatsapp {
     display: inline-flex;
     align-items: center;
@@ -145,7 +164,6 @@ a:focus, button:focus {
     background-color: #16a34a;
 }
 
-/* --- SEÇÃO DE SERVIÇOS COM IMAGENS --- */
 .services-section {
     padding: 80px 0;
     background-color: #171e30;
@@ -197,7 +215,6 @@ a:focus, button:focus {
     line-height: 1.5;
 }
 
-/* --- SEÇÃO DE PREÇOS --- */
 .pricing-section {
     padding: 80px 0;
     background-color: var(--bg-dark);
@@ -275,7 +292,6 @@ a:focus, button:focus {
     font-weight: bold;
 }
 
-/* --- SEÇÃO DE GALERIA --- */
 .gallery-section {
     padding: 80px 0;
     background-color: #171e30;
@@ -318,7 +334,6 @@ a:focus, button:focus {
 .gallery-label {
     position: absolute;
     bottom: 15px;
-    left: 15px;
     padding: 6px 14px;
     border-radius: 4px;
     font-size: 0.9rem;
@@ -329,14 +344,16 @@ a:focus, button:focus {
 .label-before {
     background-color: #ef4444; 
     color: #ffffff;
+    left: 15px;
 }
 
 .label-after {
     background-color: var(--primary-neon); 
     color: #000000;
+    right: 15px;
+    left: auto; 
 }
 
-/* --- FOOTER --- */
 .main-footer {
     background-color: var(--bg-dark);
     padding: 60px 0 20px 0;
@@ -356,7 +373,8 @@ a:focus, button:focus {
     margin-bottom: 10px;
 }
 
-.footer-info p, .footer-contact p {
+.footer-info p, 
+.footer-contact p {
     color: var(--text-muted);
     line-height: 1.6;
     font-style: normal;
@@ -375,13 +393,21 @@ a:focus, button:focus {
     color: #64748b;
 }
 
-/* --- RESPONSIVIDADE --- */
+@media (max-width: 968px) {
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-img {
+        max-width: 90%;      
+        margin-top: 30px;   
+    }
+}
+
 @media (max-width: 768px) {
     .hero-section {
-        background: linear-gradient(to top, rgba(18, 24, 36, 0.95) 70%, rgba(18, 24, 36, 0.6)), 
-                    url('https://unsplash.com') no-repeat center center / cover;
         padding: 60px 0;
-        text-align: center;
     }
     
     .hero-content h1 {
@@ -396,45 +422,5 @@ a:focus, button:focus {
     .footer-container {
         flex-direction: column;
         text-align: center;
-    }
-}
-
-/* --- CONFIGURAÇÃO RESPONSIVA PARA A IMAGEM EM DESTAQUE --- */
-.topp {
-    display: block;
-    width: 100%;             /* Faz a imagem ocupar toda a largura do container pai */
-    max-width: 550px;        /* Evita que ela fique gigante em telas grandes de PC */
-    height: auto;            /* Mantém a proporção original da imagem sem distorcer */
-    object-fit: cover;       /* Garante um corte limpo caso mude a proporção */
-    border-radius: 16px;     /* Bordas arredondadas modernas combinando com o layout */
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); /* Sombra para dar profundidade sobre o fundo */
-    margin: 0 auto;          /* Centraliza automaticamente em telas menores */
-    transition: transform 0.3s ease; /* Efeito suave ao passar o mouse */
-}
-
-.topp:hover {
-    transform: scale(1.02);  /* Leve micro-interação premium ao passar o mouse */
-}
-
-/* --- AJUSTE DE RESPONSIVIDADE NO GRID DA HERO SECTION --- */
-/* Certifique-se de que o container que envelopa o texto e a imagem use Flexbox ou Grid */
-.hero-container {
-    display: flex;
-    flex-direction: row;     /* Coloca texto de um lado e imagem do outro no PC */
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-}
-
-/* Ajuste obrigatório para Celulares (Mobile First / Adaptativo) */
-@media (max-width: 968px) {
-    .hero-container {
-        flex-direction: column; /* Joga a imagem para baixo do texto no celular */
-        text-align: center;
-    }
-
-    .topp {
-        max-width: 90%;      /* Ajusta o tamanho para ocupar bem a tela do celular */
-        margin-top: 30px;    /* Dá um espaçamento do botão do WhatsApp */
     }
 }
